@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,32 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
     </style>
 </head>
-<body class="bg-[#FDFBF7] text-stone-800">
+
+<body class="bg-[#FDFBF7] text-stone-800" ontouchstart="">
     <div id="root"></div>
 
     <script type="text/babel">
@@ -30,85 +47,85 @@
         // --- 寫死的完整產品資料庫 ---
         const defaultMenuData = [
             {
-              "category": "傳統處理法系列",
-              "items": [
-                { "id": 1, "name": "衣索比亞 古吉 安格斯獅子王", "roast": "淺焙", "process": "日曬", "weight": "200g", "notes": "藍莓果醬 玫瑰果醬 葡萄柚 荔枝 橘子", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 2, "name": "衣索比亞西達摩 花貝果那", "roast": "淺中焙", "process": "厭氧日曬", "weight": "227g", "notes": "草莓果醬 香料 白巧克力 焦糖", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 3, "name": "衣索比亞耶加雪菲 尼羅河花園", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "白花 白桃 荔枝柚子花香", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 4, "name": "衣索比亞科契爾 風之谷", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "檸檬 佛手柑 五月桃", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 5, "name": "玻利維亞 卡拉納比 明日太陽計劃", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "柳橙汁 黑莓 李子", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 6, "name": "哥倫比亞考卡 聖徒阿里歐水洗", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "花香 莓果 太妃糖 黑醋栗", "beanPrice": 400, "dripPrice": 20, "isPremium": true }
-              ]
+                "category": "傳統處理法系列",
+                "items": [
+                    { "id": 1, "name": "衣索比亞 古吉 安格斯獅子王", "roast": "淺焙", "process": "日曬", "weight": "200g", "notes": "藍莓果醬 玫瑰果醬 葡萄柚 荔枝 橘子", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 2, "name": "衣索比亞西達摩 花貝果那", "roast": "淺中焙", "process": "厭氧日曬", "weight": "227g", "notes": "草莓果醬 香料 白巧克力 焦糖", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 3, "name": "衣索比亞耶加雪菲 尼羅河花園", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "白花 白桃 荔枝柚子花香", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 4, "name": "衣索比亞科契爾 風之谷", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "檸檬 佛手柑 五月桃", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 5, "name": "玻利維亞 卡拉納比 明日太陽計劃", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "柳橙汁 黑莓 李子", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 6, "name": "哥倫比亞考卡 聖徒阿里歐水洗", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "花香 莓果 太妃糖 黑醋栗", "beanPrice": 400, "dripPrice": 20, "isPremium": true }
+                ]
             },
             {
-              "category": "共發酵特殊處理系列",
-              "items": [
-                { "id": 8, "name": "很厲害的配方/桃語花香", "roast": "淺焙", "process": "", "weight": "150g", "notes": "小山園抹茶 桃語花香", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 9, "name": "哥倫比亞薇拉 蘋果百香蜜", "roast": "淺焙", "process": "葡萄蜜處理", "weight": "150g", "notes": "青蘋果 百香果 蜂蜜 香蕉", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 10, "name": "哥倫比亞薇拉 玫瑰茶", "roast": "淺焙", "process": "酵母水洗", "weight": "150g", "notes": "乾燥玫瑰花瓣 玫瑰果凍", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 11, "name": "哥倫比亞瑪格麗特 草莓花轟", "roast": "淺焙", "process": "雙厭氧熱衝擊蜜處理", "weight": "150g", "notes": "草莓果醬 草莓餅乾", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 12, "name": "哥倫比亞 克菈菈莊園 葡萄百花", "roast": "淺焙", "process": "蜜處理", "weight": "150g", "notes": "香檳葡萄 葡萄軟糖 彈珠汽水", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 121, "name": "哥倫比亞天堂莊園 艷夏花荔", "roast": "淺焙", "process": "雙厭氧處理", "weight": "113g", "notes": "草莓汁 水蜜桃汁 荔枝", "beanPrice": 400, "dripPrice": 40, "isPremium": true }
-              ]
+                "category": "共發酵特殊處理系列",
+                "items": [
+                    { "id": 8, "name": "很厲害的配方/桃語花香", "roast": "淺焙", "process": "", "weight": "150g", "notes": "小山園抹茶 桃語花香", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 9, "name": "哥倫比亞薇拉 蘋果百香蜜", "roast": "淺焙", "process": "葡萄蜜處理", "weight": "150g", "notes": "青蘋果 百香果 蜂蜜 香蕉", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 10, "name": "哥倫比亞薇拉 玫瑰茶", "roast": "淺焙", "process": "酵母水洗", "weight": "150g", "notes": "乾燥玫瑰花瓣 玫瑰果凍", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 11, "name": "哥倫比亞瑪格麗特 草莓花轟", "roast": "淺焙", "process": "雙厭氧熱衝擊蜜處理", "weight": "150g", "notes": "草莓果醬 草莓餅乾", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 12, "name": "哥倫比亞 克菈菈莊園 葡萄百花", "roast": "淺焙", "process": "蜜處理", "weight": "150g", "notes": "香檳葡萄 葡萄軟糖 彈珠汽水", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 121, "name": "哥倫比亞天堂莊園 艷夏花荔", "roast": "淺焙", "process": "雙厭氧處理", "weight": "113g", "notes": "草莓汁 水蜜桃汁 荔枝", "beanPrice": 400, "dripPrice": 40, "isPremium": true }
+                ]
             },
             {
-              "category": "進階款花果系列",
-              "items": [
-                { "id": 15, "name": "衣索比亞罕貝拉 花魁谷 by Lulo", "roast": "淺焙", "process": "日曬", "weight": "170g", "notes": "莓果紅茶 花香 櫻桃", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 16, "name": "哥斯大黎加 耶穌之心藝伎", "roast": "淺焙", "process": "日曬", "weight": "150g", "notes": "草莓 橘子 葡萄柚", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 17, "name": "哥倫比亞考卡 聖徒阿里歐蜜處理", "roast": "淺焙", "process": "蜜處理", "weight": "200g", "notes": "紅糖 熟李 果乾 核果", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 18, "name": "肯亞 抹茶山 小山園", "roast": "淺中焙", "process": "水洗", "weight": "200g", "notes": "花香 黑醋栗 綠茶 奶油", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 19, "name": "衣索比亞罕貝拉 布穀阿貝兒", "roast": "淺焙", "process": "日曬", "weight": "200g", "notes": "草莓 鳳梨 石榴 櫻桃", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 37, "name": "衣索比亞 耶加雪菲 仲夏夜之月", "roast": "淺焙", "process": "水洗", "weight": "150g", "notes": "玫瑰花 紫羅蘭 果汁牛奶 砂糖 橘", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 38, "name": "衣索比亞 西達馬 蘇利亞 by Tamiru", "roast": "極淺焙", "process": "紅蜜", "weight": "170g", "notes": "茉莉花 荔枝果凍 玫瑰花 黑醋栗果汁 綜合莓果汁 柚子", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 39, "name": "巴拿馬 文藝復興 維納斯女神藝伎", "roast": "淺焙", "process": "水洗", "weight": "113g", "notes": "橙花 烏龍 柔和柑橘 新鮮莓果 香草", "beanPrice": 400, "dripPrice": 50, "isPremium": true }
-              ]
+                "category": "進階款花果系列",
+                "items": [
+                    { "id": 15, "name": "衣索比亞罕貝拉 花魁谷 by Lulo", "roast": "淺焙", "process": "日曬", "weight": "170g", "notes": "莓果紅茶 花香 櫻桃", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 16, "name": "哥斯大黎加 耶穌之心藝伎", "roast": "淺焙", "process": "日曬", "weight": "150g", "notes": "草莓 橘子 葡萄柚", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 17, "name": "哥倫比亞考卡 聖徒阿里歐蜜處理", "roast": "淺焙", "process": "蜜處理", "weight": "200g", "notes": "紅糖 熟李 果乾 核果", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 18, "name": "肯亞 抹茶山 小山園", "roast": "淺中焙", "process": "水洗", "weight": "200g", "notes": "花香 黑醋栗 綠茶 奶油", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 19, "name": "衣索比亞罕貝拉 布穀阿貝兒", "roast": "淺焙", "process": "日曬", "weight": "200g", "notes": "草莓 鳳梨 石榴 櫻桃", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 37, "name": "衣索比亞 耶加雪菲 仲夏夜之月", "roast": "淺焙", "process": "水洗", "weight": "150g", "notes": "玫瑰花 紫羅蘭 果汁牛奶 砂糖 橘", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 38, "name": "衣索比亞 西達馬 蘇利亞 by Tamiru", "roast": "極淺焙", "process": "紅蜜", "weight": "170g", "notes": "茉莉花 荔枝果凍 玫瑰花 黑醋栗果汁 綜合莓果汁 柚子", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 39, "name": "巴拿馬 文藝復興 維納斯女神藝伎", "roast": "淺焙", "process": "水洗", "weight": "113g", "notes": "橙花 烏龍 柔和柑橘 新鮮莓果 香草", "beanPrice": 400, "dripPrice": 50, "isPremium": true }
+                ]
             },
             {
-              "category": "酒鬼限定系列",
-              "items": [
-                { "id": 21, "name": "衣索比亞西達摩 白蘭地酒桶浸漬", "roast": "", "process": "酒桶浸漬", "weight": "200g", "notes": "白蘭地 酒香 香草", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 22, "name": "衣索比亞西達摩 琴酒水洗", "roast": "", "process": "琴酒水洗", "weight": "200g", "notes": "利口酒 琴酒 迷迭香", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 23, "name": "衣索比亞西達摩 琴酒日曬", "roast": "", "process": "琴酒日曬", "weight": "200g", "notes": "酒漬櫻桃 熱帶水果", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
-                { "id": 24, "name": "哥倫比亞瑪格麗特 威士忌酒桶", "roast": "", "process": "威士忌酒桶", "weight": "200g", "notes": "威士忌 甜菊 肉桂 丁香", "beanPrice": 400, "dripPrice": 40, "isPremium": true }
-              ]
+                "category": "酒鬼限定系列",
+                "items": [
+                    { "id": 21, "name": "衣索比亞西達摩 白蘭地酒桶浸漬", "roast": "", "process": "酒桶浸漬", "weight": "200g", "notes": "白蘭地 酒香 香草", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 22, "name": "衣索比亞西達摩 琴酒水洗", "roast": "", "process": "琴酒水洗", "weight": "200g", "notes": "利口酒 琴酒 迷迭香", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 23, "name": "衣索比亞西達摩 琴酒日曬", "roast": "", "process": "琴酒日曬", "weight": "200g", "notes": "酒漬櫻桃 熱帶水果", "beanPrice": 400, "dripPrice": 40, "isPremium": true },
+                    { "id": 24, "name": "哥倫比亞瑪格麗特 威士忌酒桶", "roast": "", "process": "威士忌酒桶", "weight": "200g", "notes": "威士忌 甜菊 肉桂 丁香", "beanPrice": 400, "dripPrice": 40, "isPremium": true }
+                ]
             },
             {
-              "category": "典藏藝伎 & 特殊品種",
-              "items": [
-                { "id": 251, "name": "巴拿馬 詹森莊園藝伎 100g", "roast": "淺焙", "process": "水洗", "weight": "100g", "notes": "橙花 柑橘 甘蔗 烏龍茶香 佛手柑 檸檬皮香氣 藍莓", "beanPrice": 900, "dripPrice": 90, "isPremium": true },
-                { "id": 252, "name": "巴拿馬 詹森莊園藝伎 15g 精裝咖啡豆", "roast": "淺焙", "process": "水洗", "weight": "15g", "notes": "橙花 柑橘 甘蔗 烏龍茶香 佛手柑 檸檬皮香氣 藍莓", "beanPrice": 130, "isPremium": true },
-                { "id": 253, "name": "哥倫比亞森林農場 Wush Wush", "roast": "淺焙", "process": "厭氧水洗", "weight": "100g", "notes": "百合 野薑花 烏龍茶香 柳丁", "beanPrice": 800, "dripPrice": 80, "isPremium": true },
-                { "id": 254, "name": "衣索比亞班莎 Tamiru Alo天空計畫", "roast": "淺焙", "process": "友達蜜處理", "weight": "113g", "notes": "橘子軟糖 茉莉花 玫瑰花 烏龍", "beanPrice": 700, "dripPrice": 70, "isPremium": true }
-              ]
+                "category": "典藏藝伎 & 特殊品種",
+                "items": [
+                    { "id": 251, "name": "巴拿馬 詹森莊園藝伎 100g", "roast": "淺焙", "process": "水洗", "weight": "100g", "notes": "橙花 柑橘 甘蔗 烏龍茶香 佛手柑 檸檬皮香氣 藍莓", "beanPrice": 900, "dripPrice": 90, "isPremium": true },
+                    { "id": 252, "name": "巴拿馬 詹森莊園藝伎 15g 精裝咖啡豆", "roast": "淺焙", "process": "水洗", "weight": "15g", "notes": "橙花 柑橘 甘蔗 烏龍茶香 佛手柑 檸檬皮香氣 藍莓", "beanPrice": 130, "isPremium": true },
+                    { "id": 253, "name": "哥倫比亞森林農場 Wush Wush", "roast": "淺焙", "process": "厭氧水洗", "weight": "100g", "notes": "百合 野薑花 烏龍茶香 柳丁", "beanPrice": 800, "dripPrice": 80, "isPremium": true },
+                    { "id": 254, "name": "衣索比亞班莎 Tamiru Alo天空計畫", "roast": "淺焙", "process": "友達蜜處理", "weight": "113g", "notes": "橘子軟糖 茉莉花 玫瑰花 烏龍", "beanPrice": 700, "dripPrice": 70, "isPremium": true }
+                ]
             },
             {
-              "category": "即將售罄品項",
-              "items": [
-                { "id": 36, "name": "玻利維亞 卡拉納比 美人莊園", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "奶油 太妃糖 莓果 核果尾韻", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 35, "name": "哥斯大黎加 中央谷地 津卡蜜熊", "roast": "中淺焙", "process": "黃蜜", "weight": "227g", "notes": "李子 焦糖 椹果 蜂蜜餅乾 葡萄柚", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
-                { "id": 7, "name": "哥倫比亞 米蘭莊園 五月荔香", "roast": "淺焙", "process": "荔枝Culturing水洗", "weight": "113g", "notes": "水蜜桃優格 荔枝優格 橘子軟糖 水果優格", "beanPrice": 400, "dripPrice": 50, "isPremium": true },
-                { "id": 14, "name": "哥斯大黎加塔拉珠 Don Eli友達", "roast": "淺焙", "process": "雙厭氧蜜處理", "weight": "150g", "notes": "雪松 李子 可可 覆盆莓 果汁感", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
-                { "id": 13, "name": "衣索比亞 古吉 牡丹花魁水洗 藝伎", "roast": "淺焙", "process": "水洗", "weight": "170g", "notes": "茉莉花 香水羅蘭 雪橙 白桃 佛手柑 花茶感", "beanPrice": 400, "dripPrice": 30, "isPremium": true }
-              ]
+                "category": "即將售罄品項",
+                "items": [
+                    { "id": 36, "name": "玻利維亞 卡拉納比 美人莊園", "roast": "淺焙", "process": "水洗", "weight": "200g", "notes": "奶油 太妃糖 莓果 核果尾韻", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 35, "name": "哥斯大黎加 中央谷地 津卡蜜熊", "roast": "中淺焙", "process": "黃蜜", "weight": "227g", "notes": "李子 焦糖 椹果 蜂蜜餅乾 葡萄柚", "beanPrice": 400, "dripPrice": 20, "isPremium": true },
+                    { "id": 7, "name": "哥倫比亞 米蘭莊園 五月荔香", "roast": "淺焙", "process": "荔枝Culturing水洗", "weight": "113g", "notes": "水蜜桃優格 荔枝優格 橘子軟糖 水果優格", "beanPrice": 400, "dripPrice": 50, "isPremium": true },
+                    { "id": 14, "name": "哥斯大黎加塔拉珠 Don Eli友達", "roast": "淺焙", "process": "雙厭氧蜜處理", "weight": "150g", "notes": "雪松 李子 可可 覆盆莓 果汁感", "beanPrice": 400, "dripPrice": 30, "isPremium": true },
+                    { "id": 13, "name": "衣索比亞 古吉 牡丹花魁水洗 藝伎", "roast": "淺焙", "process": "水洗", "weight": "170g", "notes": "茉莉花 香水羅蘭 雪橙 白桃 佛手柑 花茶感", "beanPrice": 400, "dripPrice": 30, "isPremium": true }
+                ]
             },
             {
-              "category": "經典系列",
-              "items": [
-                { "id": 26, "name": "經典藍山風味", "roast": "中淺焙", "process": "", "weight": "227g", "notes": "微酸 核桃 牛奶糖 杏仁", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
-                { "id": 27, "name": "經典曼巴", "roast": "中焙", "process": "", "weight": "227g", "notes": "堅果 烘烤 巧克力 焦糖", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
-                { "id": 28, "name": "經典曼特寧", "roast": "中深焙", "process": "", "weight": "227g", "notes": "黑巧克力 奶油 焦糖", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
-                { "id": 29, "name": "瑪雅火山", "roast": "深焙", "process": "", "weight": "227g", "notes": "黑可可 榛果 焦糖 厚實", "beanPrice": 250, "dripPrice": 13, "isClassic": true }
-              ]
+                "category": "經典系列",
+                "items": [
+                    { "id": 26, "name": "經典藍山風味", "roast": "中淺焙", "process": "", "weight": "227g", "notes": "微酸 核桃 牛奶糖 杏仁", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
+                    { "id": 27, "name": "經典曼巴", "roast": "中焙", "process": "", "weight": "227g", "notes": "堅果 烘烤 巧克力 焦糖", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
+                    { "id": 28, "name": "經典曼特寧", "roast": "中深焙", "process": "", "weight": "227g", "notes": "黑巧克力 奶油 焦糖", "beanPrice": 250, "dripPrice": 13, "isClassic": true },
+                    { "id": 29, "name": "瑪雅火山", "roast": "深焙", "process": "", "weight": "227g", "notes": "黑可可 榛果 焦糖 厚實", "beanPrice": 250, "dripPrice": 13, "isClassic": true }
+                ]
             },
             {
                 category: "套裝組合",
                 items: [
-                { id: 30, name: "澎拜包一套 (43包)", weight: "43包", price: 1000, type: 'box' },
-                { id: 31, name: "單品耳掛30入禮盒", weight: "30入", price: 1000, type: 'box' },
-                { id: 32, name: "單品咖啡豆3入禮盒", weight: "3入", price: 1100, type: 'box' },
-                { id: 33, name: "雙層玻璃壺杯+耳掛套組", weight: "1組", price: 1200, type: 'box' },
-                { id: 34, name: "Multifly不織布錐形濾紙", weight: "1包", price: 180, type: 'other' },
+                    { id: 30, name: "澎拜包一套 (43包)", weight: "43包", price: 1000, type: 'box' },
+                    { id: 31, name: "單品耳掛30入禮盒", weight: "30入", price: 1000, type: 'box' },
+                    { id: 32, name: "單品咖啡豆3入禮盒", weight: "3入", price: 1100, type: 'box' },
+                    { id: 33, name: "雙層玻璃壺杯+耳掛套組", weight: "1組", price: 1200, type: 'box' },
+                    { id: 34, name: "Multifly不織布錐形濾紙", weight: "1包", price: 180, type: 'other' },
                 ]
             }
         ];
@@ -169,13 +186,13 @@
                     alert('系統尚未設定好 API 網址，請聯絡管理員設定。');
                     return;
                 }
-                
+
                 setIsSearching(true);
                 setSearchResult(null);
                 try {
                     const response = await fetch(`${GAS_URL}?action=searchOrder&name=${encodeURIComponent(searchName.trim())}`);
                     const result = await response.json();
-                    
+
                     if (result.status === 'success') {
                         setSearchResult(result.order);
                     } else {
@@ -210,7 +227,7 @@
                 const cartKey = `${item.id}-${type}`;
                 const namePrefix = type === 'bean' ? '[咖啡豆] ' : type === 'drip' ? '[掛耳包] ' : '';
                 const weightSuffix = (type === 'bean' && item.weight) ? ` (${item.weight})` : '';
-                
+
                 setCart(prev => {
                     const existing = prev.find(c => c.cartKey === cartKey);
                     if (existing) {
@@ -265,7 +282,7 @@
             }, [cart]);
 
             const toggleCategory = (index) => {
-                setExpandedCategories(prev => 
+                setExpandedCategories(prev =>
                     prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
                 );
             };
@@ -333,7 +350,7 @@
                                     花兒的5號玫瑰園
                                 </h1>
                             </div>
-                            <button 
+                            <button
                                 onClick={() => setShowSearchModal(true)}
                                 className="px-3 py-2 bg-amber-800 rounded text-sm hover:bg-amber-700 transition flex items-center gap-1"
                             >
@@ -354,14 +371,14 @@
                                     <div>
                                         <label className="block text-sm font-bold text-stone-700 mb-2">輸入您下單時填寫的名稱/代號</label>
                                         <div className="flex gap-2">
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 value={searchName}
                                                 onChange={(e) => setSearchName(e.target.value)}
                                                 placeholder="例如: 小王"
                                                 className="flex-1 border rounded p-2 focus:outline-amber-500 bg-stone-50"
                                             />
-                                            <button 
+                                            <button
                                                 onClick={searchOrder}
                                                 disabled={isSearching}
                                                 className="bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-900 transition flex items-center disabled:opacity-50"
@@ -370,7 +387,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    
+
                                     {searchResult && (
                                         <div className="mt-4 p-4 border rounded-lg bg-stone-50">
                                             {searchResult.error ? (
@@ -389,7 +406,7 @@
                                                         <span className="text-stone-500 text-sm">總金額</span>
                                                         <span className="font-bold text-amber-700">${searchResult.total}</span>
                                                     </div>
-                                                    <button 
+                                                    <button
                                                         onClick={loadOrderForEdit}
                                                         className="w-full mt-4 bg-amber-600 text-white py-2 rounded font-bold hover:bg-amber-700 transition"
                                                     >
@@ -405,7 +422,7 @@
                     )}
 
                     <main className="max-w-6xl mx-auto mt-6 px-4 flex flex-col lg:flex-row gap-8">
-                        
+
                         {/* 左側：產品列表 */}
                         <div className="flex-1 space-y-6">
                             <div className="bg-orange-100 border-l-4 border-orange-500 p-4 rounded shadow-sm">
@@ -460,7 +477,7 @@
 
                                 return (
                                     <div key={idx} className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-                                        <button 
+                                        <button
                                             onClick={() => toggleCategory(idx)}
                                             className="w-full bg-stone-100 p-4 flex justify-between items-center hover:bg-stone-200 transition-colors"
                                         >
@@ -469,7 +486,7 @@
                                             </h2>
                                             <i data-lucide={expandedCategories.includes(idx) ? "chevron-up" : "chevron-down"} className="text-stone-500 w-5 h-5"></i>
                                         </button>
-                                        
+
                                         {expandedCategories.includes(idx) && (
                                             <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 {filteredItems.map(item => (
@@ -485,17 +502,17 @@
                                                         </div>
                                                         <div className="flex flex-wrap gap-2 mt-auto pt-3 border-t border-stone-200">
                                                             {item.beanPrice && (
-                                                                <button onClick={() => addToCart(item, 'bean', item.beanPrice)} className="flex-1 min-w-[120px] bg-amber-700 text-white py-2 px-3 rounded hover:bg-amber-800 transition flex items-center justify-center gap-1 text-sm font-medium">
+                                                                <button onClick={() => addToCart(item, 'bean', item.beanPrice)} className="flex-1 min-w-[120px] bg-amber-400 text-white py-2 px-3 rounded hover:bg-amber-500 active:bg-amber-800 transform active:scale-90 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-1 text-sm font-medium">
                                                                     <i data-lucide="plus" className="w-4 h-4"></i> {item.isClassic ? '半磅豆' : '咖啡豆'} ${item.beanPrice}
                                                                 </button>
                                                             )}
                                                             {item.dripPrice && (
-                                                                <button onClick={() => addToCart(item, 'drip', item.dripPrice)} className="flex-1 min-w-[120px] bg-stone-800 text-white py-2 px-3 rounded hover:bg-stone-900 transition flex items-center justify-center gap-1 text-sm font-medium">
+                                                                <button onClick={() => addToCart(item, 'drip', item.dripPrice)} className="flex-1 min-w-[120px] bg-orange-400 text-white py-2 px-3 rounded hover:bg-orange-500 active:bg-orange-800 transform active:scale-90 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-1 text-sm font-medium">
                                                                     <i data-lucide="plus" className="w-4 h-4"></i> 掛耳包 ${item.dripPrice}
                                                                 </button>
                                                             )}
                                                             {item.price && !item.beanPrice && !item.dripPrice && (
-                                                                <button onClick={() => addToCart(item, item.type || 'other', item.price)} className="flex-1 w-full bg-amber-600 text-white py-2 px-3 rounded hover:bg-amber-700 transition flex items-center justify-center gap-1 text-sm font-medium">
+                                                                <button onClick={() => addToCart(item, item.type || 'other', item.price)} className="flex-1 w-full bg-amber-500 text-white py-2 px-3 rounded hover:bg-amber-600 active:bg-amber-800 transform active:scale-95 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-1 text-sm font-medium">
                                                                     <i data-lucide="plus" className="w-4 h-4"></i> 加入購物車 ${item.price}
                                                                 </button>
                                                             )}
@@ -523,7 +540,7 @@
                                         </button>
                                     </div>
                                 )}
-                                
+
                                 <h2 className="text-xl font-bold flex items-center gap-2 border-b pb-3 mb-4 text-stone-800">
                                     <i data-lucide="shopping-cart" className="text-amber-700 w-5 h-5"></i>
                                     購物車
@@ -553,13 +570,13 @@
                                 {/* 極簡填寫區 */}
                                 <div className="border-t border-stone-200 pt-4 mb-4">
                                     <label className="block text-sm font-bold text-stone-700 mb-1">您的名稱或代號 <span className="text-red-500">*</span></label>
-                                    <input 
-                                        type="text" 
-                                        value={buyerName} 
-                                        onChange={(e) => setBuyerName(e.target.value)} 
-                                        placeholder="例如: 小ㄐ、布丁狗" 
-                                        className="w-full border rounded p-2 bg-stone-50 focus:bg-white focus:outline-amber-500" 
-                                        required 
+                                    <input
+                                        type="text"
+                                        value={buyerName}
+                                        onChange={(e) => setBuyerName(e.target.value)}
+                                        placeholder="例如: 小ㄐ、布丁狗"
+                                        className="w-full border rounded p-2 bg-stone-50 focus:bg-white focus:outline-amber-500"
+                                        required
                                     />
                                     <div className="text-xs text-stone-500 mt-1">日後可憑此名稱查詢修改訂單</div>
                                 </div>
@@ -578,10 +595,10 @@
                                     </div>
                                 )}
 
-                                <button 
+                                <button
                                     onClick={submitOrder}
                                     disabled={isSubmitting || cart.length === 0}
-                                    className={`w-full py-3 rounded-lg font-bold text-lg text-white shadow-md transition flex justify-center items-center gap-2 ${isSubmitting || cart.length === 0 ? 'bg-stone-400 cursor-not-allowed' : (currentOrderId ? 'bg-red-600 hover:bg-red-700' : 'bg-amber-700 hover:bg-amber-800 active:transform active:scale-95')}`}
+                                    className={`w-full py-3 rounded-lg font-bold text-lg text-white shadow-md transition-all flex justify-center items-center gap-2 ${isSubmitting || cart.length === 0 ? 'bg-stone-400 cursor-not-allowed' : (currentOrderId ? 'bg-red-600 hover:bg-red-700 active:bg-red-800 active:scale-95' : 'bg-amber-600 hover:bg-amber-700 active:bg-amber-800 active:scale-95')}`}
                                 >
                                     {isSubmitting ? '處理中...' : (currentOrderId ? '確認修改' : '送出訂單')}
                                 </button>
@@ -596,4 +613,5 @@
         root.render(<App />);
     </script>
 </body>
+
 </html>
